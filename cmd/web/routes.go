@@ -4,7 +4,6 @@ import (
 	"net/http"
 	"github.com/johnreybacal/go-book/pkg/config"
 	"github.com/johnreybacal/go-book/pkg/handlers"
-	"github.com/bmizerany/pat"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 )
@@ -23,15 +22,6 @@ func routes(app *config.AppConfig) http.Handler {
 	path += `/static/`
 	fileServer := http.FileServer(http.Dir(path))
 	mux.Handle("/static/*", http.StripPrefix("/static", fileServer))
-
-	return mux
-}
-
-func routesPat(app *config.AppConfig) http.Handler {
-	mux := pat.New()
-
-	mux.Get("/", http.HandlerFunc(handlers.Repo.Home))
-	mux.Get("/about", http.HandlerFunc(handlers.Repo.About))
 
 	return mux
 }
