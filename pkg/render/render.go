@@ -6,7 +6,6 @@ import (
 	"html/template"
 	"log"
 	"net/http"
-	"os"
 	"path/filepath"
 	"github.com/johnreybacal/go-book/pkg/config"
 	"github.com/johnreybacal/go-book/pkg/models"
@@ -54,8 +53,7 @@ func RenderTemplate(w http.ResponseWriter, tmpl string, templateData *models.Tem
 // CreateTemplateCache create a template cache as a map
 func CreateTemplateCache() (map[string]*template.Template, error) {
 	cache := map[string]*template.Template{}
-	path, _ := os.Getwd()
-	path = path[:len(path) - 8]
+	path := app.Path
 	path += `\templates\`
 
 	pages, err := filepath.Glob(path + "*.page.tmpl")
