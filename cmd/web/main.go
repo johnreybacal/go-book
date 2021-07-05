@@ -5,7 +5,9 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
 	"time"
+
 	"github.com/alexedwards/scs/v2"
 	"github.com/johnreybacal/go-book/pkg/config"
 	"github.com/johnreybacal/go-book/pkg/handlers"
@@ -54,8 +56,13 @@ func initSession() {
 
 func initPath() {
 	path, _ := os.Getwd()
-	path = path[:len(path) - 8]
+
+	// is launched from .vscode/launch.json
+	if strings.Contains(path, `\cmd\web`) {
+		path = path[:len(path) - 8]
+	}
 	app.Path = path
+	fmt.Println("Root:", path)
 }
 
 func initTemplateCache() {
