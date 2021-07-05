@@ -2,8 +2,8 @@ package main
 
 import (
 	"net/http"
-	"github.com/johnreybacal/go-book/pkg/config"
-	"github.com/johnreybacal/go-book/pkg/handlers"
+	"github.com/johnreybacal/go-book/internal/config"
+	"github.com/johnreybacal/go-book/internal/handlers"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 )

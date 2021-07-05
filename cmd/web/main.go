@@ -9,9 +9,9 @@ import (
 	"time"
 
 	"github.com/alexedwards/scs/v2"
-	"github.com/johnreybacal/go-book/pkg/config"
-	"github.com/johnreybacal/go-book/pkg/handlers"
-	"github.com/johnreybacal/go-book/pkg/render"
+	"github.com/johnreybacal/go-book/internal/config"
+	"github.com/johnreybacal/go-book/internal/handlers"
+	"github.com/johnreybacal/go-book/internal/render"
 )
 
 const portNumber = ":8080"
